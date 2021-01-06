@@ -2,15 +2,15 @@ package ch.hearc.ProjetTE;
 
 public class Beer {
 	public enum ColorType {
-		BLONDE, BRUNE, AMBREE, BLANCHE
+		BLONDE, BRUNE, AMBREE, BLANCHE, UNKNOWN
 	}
 
 	public enum FermentationType {
-		BASSE, HAUTE, SPONTANEE, EN_BOUTEILLE, MIXTE
+		BASSE, HAUTE, SPONTANEE, EN_BOUTEILLE, MIXTE, UNKNOWN
 	}
 
 	public enum StyleType {
-		GARDE, ABBAYE, LAGER, PALE_ALE, INDIA_PALE_ALE, STOUT, BLANCHE, SAISON, SOUR, FUT
+		GARDE, ABBAYE, LAGER, PALE_ALE, INDIA_PALE_ALE, STOUT, BLANCHE, SAISON, SOUR, FUT, UNKNOWN
 	}
 
 	private int stock;

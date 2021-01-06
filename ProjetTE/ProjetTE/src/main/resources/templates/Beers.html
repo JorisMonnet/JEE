@@ -1,14 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="ISO-8859-1">
+		<link rel="stylesheet" th:href="@{/css/style.css}" />
 		<title>Beers List</title>
 	</head>
 	<body>
+		<h1>Beers : </h1>
+		
+		<h3 th:utext="${notificationMessage}"></h3>
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Brand</th>
+				<th>Price</th>
+				<th>Size</th>
+				<th>Color</th>
+				<th>Fermentation</th>
+				<th>Style</th>
+			</tr>
+			<tr th:each="beer : ${beers}"> <!-- https://www.thymeleaf.org/doc/tutorials/2.1/thymeleafspring.html -->
+				<td th:utext="${beer.name}"/>
+				<td th:utext="${beer.brand}"/>
+				<td th:utext="${beer.price}"/>
+				<td th:utext="${beer.size}"/>
+				<td th:utext="${beer.color}"/>
+				<td th:utext="${beer.fermentation}"/>
+				<td th:utext="${beer.style}"/>
+				<td><a th:href="@{beers/{id}(id=$beer.index)}">+</a></td>
+			</tr>
+		</table>
+	
 		<form action="POST">
 			<input required type="text" id="name" placeholder="Name"/>
 			<input required type="text" id="brand" placeholder="Brand"/>
 			<input required type="text" id="name" placeholder="Name"/>
 		</form>
 	</body>
+	<footer>
+		JEE-ProjetTe-Beer - Joris Monnet - HEARC - DLM3b
+	</footer>
 </html>

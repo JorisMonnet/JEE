@@ -33,12 +33,12 @@ public class BeerController {
 		}
 	};
 	
-	@Value("${notification.message}")
-	private String notificationMessage ="";
+	private String notificationMessage;
 	
 	@GetMapping
 	public void showBeers(Model model) {
-		model.addAttribute("beers",mapBeer);
+		model.addAttribute("notification",notificationMessage);
+		model.addAttribute("beers",mapBeer.values());
 	}
 	
 	@GetMapping("/{id}")
@@ -56,7 +56,7 @@ public class BeerController {
 		if(mapBeer.remove(id)!=null) {
 			notificationMessage = "Beer Deleted";
 		} else {
-			notificationMessage = "Beer doesn't exist";
+			notificationMessage = "Beer"+ id +"doesn't exist";
 		}
 		return "redirect:/bieres";
 	}
