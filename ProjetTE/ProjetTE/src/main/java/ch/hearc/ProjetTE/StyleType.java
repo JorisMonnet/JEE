@@ -1,5 +1,5 @@
 package ch.hearc.ProjetTE;
 
 public enum StyleType {
-	INCONNUE, GARDE, ABBAYE, LAGER, PALE_ALE, INDIA_PALE_ALE, STOUT, BLANCHE, SAISON, SOUR, FUT
+	Inconnue, Garde, Abbaye, Lager, Pale_Ale, India_Pale_Ale, Stout, Blanche, Saison, Sour, Fut
 }

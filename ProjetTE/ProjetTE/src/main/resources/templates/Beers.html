@@ -37,11 +37,11 @@
 			<label for="brand">Marque :  </label>
 			<input th:field="*{brand}" 	required type="text" 	name="brand" 	placeholder="Marque"/>
 			<label for="price">Prix (€): </label>
-			<input th:field="*{price}" 	required type="number" 	name="price" 	min="0" step="0.01"/> <!-- cents -->
+			<input th:field="*{price}" 	required type="number" 	name="price" 	value = "" min="0" step="0.01"/> <!-- cents -->
 			<label for="size">Taille (L):  </label>
-			<input th:field="*{size}" 	required type="number" 	name="size" 	min="0" step="0.001"/> <!-- mL -->
+			<input th:field="*{size}" 	required type="number" 	name="size" 	value = "" min="0" step="0.001"/> <!-- mL -->
 			<label for="stock">Nombre d'unités : </label>
-			<input th:field="*{stock}" 	required type="number" 	name="stock" 	min="0"/>
+			<input th:field="*{stock}" 	required type="number" 	name="stock" 	value = "" min="0"/>
 			<label for="color">Couleur :  </label>
 			<select name ="color" th:field="*{color}"> 																	<!-- https://www.baeldung.com/thymeleaf-enums -->
 				<option th:each="colorOpt : ${T(ch.hearc.ProjetTE.ColorType).values()}" 

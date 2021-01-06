@@ -1,5 +1,5 @@
 package ch.hearc.ProjetTE;
 
 public enum ColorType {
-	INCONNUE, BLONDE, BRUNE, AMBREE, BLANCHE
+	Inconnue, Blonde, Brune, Ambree, Blanche
 }
