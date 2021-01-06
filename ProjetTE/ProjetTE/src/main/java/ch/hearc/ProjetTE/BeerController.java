@@ -18,7 +18,6 @@ import ch.hearc.ProjetTE.Beer.FermentationType;
 import ch.hearc.ProjetTE.Beer.StyleType;
 
 @RestController
-@RequestMapping("/bieres")
 public class BeerController {
 
 	private Map<Integer,Beer> mapBeer = new HashMap<>() {
@@ -35,13 +34,14 @@ public class BeerController {
 	
 	private String notificationMessage;
 	
-	@GetMapping
+	@GetMapping("/bieres")
 	public void showBeers(Model model) {
 		model.addAttribute("notification",notificationMessage);
 		model.addAttribute("beers",mapBeer.values());
+		//return "bieres";
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("/bieres/{id}")
 	public void showBeer(Model model,@PathVariable("id") int id){
 		model.addAttribute("beer",mapBeer.get(id));
 		

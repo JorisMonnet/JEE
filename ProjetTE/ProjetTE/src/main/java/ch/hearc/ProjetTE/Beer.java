@@ -2,15 +2,15 @@ package ch.hearc.ProjetTE;
 
 public class Beer {
 	public enum ColorType {
-		BLONDE, BRUNE, AMBREE, BLANCHE, UNKNOWN
+		BLONDE, BRUNE, AMBREE, BLANCHE, INCONNUE
 	}
 
 	public enum FermentationType {
-		BASSE, HAUTE, SPONTANEE, EN_BOUTEILLE, MIXTE, UNKNOWN
+		BASSE, HAUTE, SPONTANEE, EN_BOUTEILLE, MIXTE, INCONNUE
 	}
 
 	public enum StyleType {
-		GARDE, ABBAYE, LAGER, PALE_ALE, INDIA_PALE_ALE, STOUT, BLANCHE, SAISON, SOUR, FUT, UNKNOWN
+		GARDE, ABBAYE, LAGER, PALE_ALE, INDIA_PALE_ALE, STOUT, BLANCHE, SAISON, SOUR, FUT, INCONNUE
 	}
 
 	private int stock;
@@ -31,14 +31,5 @@ public class Beer {
 		this.color = color;
 		this.fermentation = fermentation;
 		this.style = style;
-	}
-
-	public String[] getAttributesArray() {
-		return new String[] { Integer.toString(stock), name, brand, Double.toString(price), Double.toString(size),
-				color.toString(), style.toString(), fermentation.toString() };
-	}
-
-	public String toString() {
-		return name + " from " + brand + " X " + Integer.toString(stock);
 	}
 }

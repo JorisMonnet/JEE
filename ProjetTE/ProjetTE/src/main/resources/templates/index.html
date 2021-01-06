@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html >
+<html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="ISO-8859-1" http-equiv="refresh"
-		        content="1; url = /bieres">
-		<title>Beer Home</title>
+		        content="0; url = /bieres">
+		<link rel="stylesheet" th:href="@{/css/style.css}" />
+		<title>Bieres</title>
 	</head>
 	<body>
-		<h1>Welcome !</h1>
-		<p>If your browser doesn't accept refresh, click <a href="/bieres"> here </a> to access to the beer List</p>
+		<h1>Bienvenue !</h1>
+		<p>Si votre navigateur n'accepte pas les refreshs, cliquez <a th:href="@{/bieres}"> ici </a> pour accéder à la liste des bières</p>
 	</body>
 	<footer>
 		<span>JEE-ProjetTe1 - Joris Monnet - HEARC - DLM3b</span>
