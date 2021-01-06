@@ -14,6 +14,7 @@ public class AddBeerForm {
 	private FermentationType fermentation;
 	private StyleType style;
 	
+	//Getters & setters
 	public int getStock() {
 		return stock;
 	}

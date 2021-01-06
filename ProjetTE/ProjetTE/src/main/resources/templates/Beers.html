@@ -27,7 +27,7 @@
 				<td th:utext="${beer.color}"/>
 				<td th:utext="${beer.fermentation}"/>
 				<td th:utext="${beer.style}"/>
-				<td><a th:href="@{bieres/{id}(id=${id++})}">+ de Détails</a></td>
+				<td><a th:href="@{bieres/{id}(id=${beer.index})}">+ de Détails</a></td>
 			</tr>
 		</table>
 	
@@ -35,11 +35,11 @@
 			<input th:field="*{name}" 	required type="text" 	placeholder="Nom"/>
 			<input th:field="*{brand}" 	required type="text" 	placeholder="Marque"/>
 			<label for="price">Prix : </label>
-			<input th:field="*{price}" 	required type="number" 	id="price"/>
+			<input th:field="*{price}" 	required type="number" 	id="price" min="0"/>
 			<label for="size">Taille :  </label>
-			<input th:field="*{size}" 	required type="number" 	id="size"/>
+			<input th:field="*{size}" 	required type="number" 	id="size" min="0"/>
 			<label for="stock">Nombre d'unités : </label>
-			<input th:field="*{stock}" 	required type="number" 	id="stock"/>
+			<input th:field="*{stock}" 	required type="number" 	id="stock" min="0"/>
 			<input th:field="*{color}" 	required type="text" 	placeholder="Couleur"/>
 			<input th:field="*{fermentation}" required type="text" placeholder="fermentation"/>
 			<input th:field="*{style}" 	required type="text" 	placeholder="Style"/>

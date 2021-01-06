@@ -17,9 +17,22 @@
 			<li>Style : <span th:utext = ${beer.style}></span></li>
 		</ul>
 	</body>
-	<form th:action="@{bieres/{id}/delete (id=${beer.index})}" method="post">
-		<input type = "submit" class="delete" value="delete"/>
-	</form>
+	<a th:href="@{{id}/delete (id=${beer.index})}" >Supprimer</a>
+	<form method="POST" th:action="@{{id}/update (id=${beer.index})}" th:object="${updateBeerForm}">
+			<input th:field="*{name}" 	required type="text" 	value="${beer.name}"/>
+			<input th:field="*{brand}" 	required type="text" 	value="${beer.brand}"/>
+			<label for="price">Prix : </label>
+			<input th:field="*{price}" 	required type="number" 	id="price" min="0" value="${beer.price}"/>
+			<label for="size">Taille :  </label>
+			<input th:field="*{size}" 	required type="number" 	id="size"  min="0" value="${beer.size}"/>
+			<label for="stock">Nombre d'unités : </label>
+			<input th:field="*{stock}" 	required type="number" 	id="stock" min="0" value="${beer.stock}"/>
+			<input th:field="*{color}" 	required type="text" 	value="${beer.color}"/>
+			<input th:field="*{fermentation}" required type="text" value="${beer.fermentation}"/>
+			<input th:field="*{style}" 	required type="text" 	value="${beer.style}"/>
+			<input type="reset">
+			<input type="submit" value="Update"/>
+		</form>
 	<footer>
 		<span>JEE-ProjetTe1 - Joris Monnet - HEARC - DLM3b</span>
 	</footer>

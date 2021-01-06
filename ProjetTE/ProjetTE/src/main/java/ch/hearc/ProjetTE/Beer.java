@@ -13,6 +13,7 @@ public class Beer {
 		GARDE, ABBAYE, LAGER, PALE_ALE, INDIA_PALE_ALE, STOUT, BLANCHE, SAISON, SOUR, FUT, INCONNUE
 	}
 
+	private int index;
 	private int stock;
 	private String name;
 	private String brand;
@@ -33,17 +34,23 @@ public class Beer {
 		this.style = style;
 	}
 
-	Beer(AddBeerForm addBeerForm) {
-		this.stock = addBeerForm.getStock();
-		this.name = addBeerForm.getName();
-		this.brand = addBeerForm.getBrand();
-		this.price = addBeerForm.getPrice();
-		this.size = addBeerForm.getSize();
-		this.color = addBeerForm.getColor();
-		this.fermentation = addBeerForm.getFermentation();
-		this.style = addBeerForm.getStyle();
+	Beer(AddBeerForm addBeerForm, int index) {
+		this.setValues(addBeerForm);
+		this.index = index;
 	}
 
+	public void setValues(AddBeerForm updateBeerForm) {
+		this.stock = updateBeerForm.getStock();
+		this.name = updateBeerForm.getName();
+		this.brand = updateBeerForm.getBrand();
+		this.price = updateBeerForm.getPrice();
+		this.size = updateBeerForm.getSize();
+		this.color = updateBeerForm.getColor();
+		this.fermentation = updateBeerForm.getFermentation();
+		this.style = updateBeerForm.getStyle();
+	}
+
+	//Getters & setters
 	public int getStock() {
 		return stock;
 	}
@@ -106,5 +113,13 @@ public class Beer {
 
 	public void setStyle(StyleType style) {
 		this.style = style;
+	}
+
+	public int getIndex() {
+		return index;
+	}
+
+	public void setIndex(int index) {
+		this.index = index;
 	}
 }
