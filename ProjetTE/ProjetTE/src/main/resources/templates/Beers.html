@@ -27,39 +27,41 @@
 				<td th:utext="${beer.color}"/>
 				<td th:utext="${beer.fermentation}"/>
 				<td th:utext="${beer.style}"/>
-				<td><a th:href="@{bieres/{id}(id=${beer.index})}">+ de Détails</a></td>
+				<td style="text-align: center"><a th:href="@{bieres/{id}(id=${beer.index})}">+ de Détails</a></td>
 			</tr>
 		</table>
-		<h2>Ajouter une Bière :</h2>
-		<form method="POST" th:action="@{/bieres/addBeer}" th:object="${addBeerForm}">
-			<label for="name">Nom :  </label>
-			<input required type="text" 	name="name"  	placeholder="Nom"/>
-			<label for="brand">Marque :  </label>
-			<input required type="text" 	name="brand" 	placeholder="Marque"/>
-			<label for="price">Prix (€): </label>
-			<input required type="number" 	name="price" 	value="" min="0" step="0.01" 	th:value="0"/> <!-- cents -->
-			<label for="size">Taille (L):  </label>
-			<input required type="number" 	name="size" 	value="" min="0" step="0.001" 	th:value="0"/> <!-- mL -->
-			<label for="stock">Nombre d'unités : </label>
-			<input required type="number" 	name="stock" 	value="" min="0" 				th:value="0" />
-			<label for="color">Couleur :  </label>
-			<select name ="color" th:field="*{color}"> 																	<!-- https://www.baeldung.com/thymeleaf-enums -->
-				<option th:each="colorOpt : ${T(ch.hearc.ProjetTE.ColorType).values()}" 
-	        			th:value="${colorOpt}" th:text="${colorOpt}"></option>
-			</select>
-			<label for="fementation">Fermentation :  </label>
-			<select name ="fermentation" th:field="*{fermentation}"> 																
-				<option th:each="fermentationOpt : ${T(ch.hearc.ProjetTE.FermentationType).values()}" 
-	        			th:value="${fermentationOpt}" th:text="${fermentationOpt}"></option>
-			</select>
-			<label for="style">Style :  </label>
-			<select name ="style" th:field="*{style}"> 																	
-				<option th:each="styleOpt : ${T(ch.hearc.ProjetTE.StyleType).values()}" 
-	        			th:value="${styleOpt}" th:text="${styleOpt}"></option>
-			</select>
-			<input type="reset">
-			<input type="submit" value="Add"/>
-		</form>
+		<div id="divContainer">
+			<h2 style="margin-left: 40vw">Ajouter une Bière :</h2>
+			<form method="POST" th:action="@{/bieres/addBeer}" th:object="${addBeerForm}">
+				<label for="name">Nom :  </label>
+				<input required type="text" 	name="name"  	placeholder="Nom"/>
+				<label for="brand">Marque :  </label>
+				<input required type="text" 	name="brand" 	placeholder="Marque"/>
+				<label for="price">Prix (€): </label>
+				<input required type="number" 	name="price" 	value="" min="0" step="0.01" 	th:value="0"/> <!-- cents -->
+				<label for="size">Taille (L):  </label>
+				<input required type="number" 	name="size" 	value="" min="0" step="0.001" 	th:value="0"/> <!-- mL -->
+				<label for="stock">Nombre d'unités : </label>
+				<input required type="number" 	name="stock" 	value="" min="0" 				th:value="0" />
+				<label for="color">Couleur :  </label>
+				<select name ="color" th:field="*{color}"> 																	<!-- https://www.baeldung.com/thymeleaf-enums -->
+					<option th:each="colorOpt : ${T(ch.hearc.ProjetTE.ColorType).values()}" 
+		        			th:value="${colorOpt}" th:text="${colorOpt}"></option>
+				</select>
+				<label for="fementation">Fermentation :  </label>
+				<select name ="fermentation" th:field="*{fermentation}"> 																
+					<option th:each="fermentationOpt : ${T(ch.hearc.ProjetTE.FermentationType).values()}" 
+		        			th:value="${fermentationOpt}" th:text="${fermentationOpt}"></option>
+				</select>
+				<label for="style">Style :  </label>
+				<select name ="style" th:field="*{style}"> 																	
+					<option th:each="styleOpt : ${T(ch.hearc.ProjetTE.StyleType).values()}" 
+		        			th:value="${styleOpt}" th:text="${styleOpt}"></option>
+				</select>
+				<input type="reset" value="Effacer" style="width: 10vw;margin-left: 5vw;border-radius: 1em">
+				<input type="submit" value="Ajouter"style="width: 10vw;margin-left: 5vw;border-radius: 1em"/>
+			</form>
+		</div>
 	</body>
 	<footer>
 		<span>JEE-ProjetTe1 - Joris Monnet - HEARC - DLM3b</span>
