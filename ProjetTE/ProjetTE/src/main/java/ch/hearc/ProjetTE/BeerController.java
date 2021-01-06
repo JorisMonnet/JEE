@@ -76,7 +76,7 @@ public class BeerController {
 	public String createbeer(Model model, @ModelAttribute("addBeerForm") AddBeerForm addBeerForm) {
 		listBeer.add(new Beer(addBeerForm, listBeer.size()));
 		notificationMessage = "Bière ajoutée !";
-		return "Beers";
+		return "redirect:/bieres";
 	}
 
 	/**
@@ -86,7 +86,7 @@ public class BeerController {
 	 * @param id    of the beer
 	 * @return the view of all beers
 	 */
-	@DeleteMapping("/{id}/delete")
+	@GetMapping("/{id}/delete")
 	public String deleteBeer(Model model, @PathVariable("id") int id) {
 		if (listBeer.remove(id) != null) {
 			notificationMessage = "Bière supprimée";
@@ -96,7 +96,7 @@ public class BeerController {
 		} else {
 			notificationMessage = "Biere " + id + " n'existe pas";
 		}
-		return "Beers";
+		return "redirect:/bieres";
 	}
 
 	/**
@@ -112,7 +112,7 @@ public class BeerController {
 			@ModelAttribute("addBeerForm") AddBeerForm updateBeerForm) {
 		listBeer.get(id).setValues(updateBeerForm);
 		notificationMessage = "Bière modifiée";
-		return "BeerDetail";
+		return "redirect:/bieres/"+id;
 
 	}
 }

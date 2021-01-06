@@ -31,7 +31,7 @@
 			</tr>
 		</table>
 	
-		<form method="POST" th:action="@{add}" th:object="${addBeerForm}">
+		<form method="POST" th:action="@{/bieres/addBeer}" th:object="${addBeerForm}">
 			<label for="name">Nom :  </label>
 			<input th:field="*{name}" 	required type="text" 	name="name"  	placeholder="Nom"/>
 			<label for="brand">Marque :  </label>
