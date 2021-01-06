@@ -15,6 +15,7 @@ public class Beer {
 	Beer(int stock, String name, String brand, double price, double size, ColorType color,
 			FermentationType fermentation, StyleType style) {
 		this.stock = stock;
+		this.name = name;
 		this.brand = brand;
 		this.price = price;
 		this.size = size;

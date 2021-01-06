@@ -30,18 +30,18 @@
 				<td><a th:href="@{bieres/{id}(id=${beer.index})}">+ de Détails</a></td>
 			</tr>
 		</table>
-	
+		<h2>Ajouter une Bière :</h2>
 		<form method="POST" th:action="@{/bieres/addBeer}" th:object="${addBeerForm}">
 			<label for="name">Nom :  </label>
-			<input th:field="*{name}" 	required type="text" 	name="name"  	placeholder="Nom"/>
+			<input required type="text" 	name="name"  	placeholder="Nom"/>
 			<label for="brand">Marque :  </label>
-			<input th:field="*{brand}" 	required type="text" 	name="brand" 	placeholder="Marque"/>
+			<input required type="text" 	name="brand" 	placeholder="Marque"/>
 			<label for="price">Prix (€): </label>
-			<input th:field="*{price}" 	required type="number" 	name="price" 	value = "" min="0" step="0.01"/> <!-- cents -->
+			<input required type="number" 	name="price" 	value="" min="0" step="0.01" 	th:value="0"/> <!-- cents -->
 			<label for="size">Taille (L):  </label>
-			<input th:field="*{size}" 	required type="number" 	name="size" 	value = "" min="0" step="0.001"/> <!-- mL -->
+			<input required type="number" 	name="size" 	value="" min="0" step="0.001" 	th:value="0"/> <!-- mL -->
 			<label for="stock">Nombre d'unités : </label>
-			<input th:field="*{stock}" 	required type="number" 	name="stock" 	value = "" min="0"/>
+			<input required type="number" 	name="stock" 	value="" min="0" 				th:value="0" />
 			<label for="color">Couleur :  </label>
 			<select name ="color" th:field="*{color}"> 																	<!-- https://www.baeldung.com/thymeleaf-enums -->
 				<option th:each="colorOpt : ${T(ch.hearc.ProjetTE.ColorType).values()}" 

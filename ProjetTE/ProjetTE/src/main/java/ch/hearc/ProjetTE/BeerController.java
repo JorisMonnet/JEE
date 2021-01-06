@@ -19,17 +19,17 @@ public class BeerController {
 	private static List<Beer> listBeer = new ArrayList<>();
 
 	static { // add 5 beers
-		listBeer.add(new Beer(5, "Nom", "Heineken", 4.5, 0.33, ColorType.Blonde, FermentationType.EnBouteille,
+		listBeer.add(new Beer(48, "La mousse", "Heineken", 2.5, 0.33, ColorType.Blonde, FermentationType.Inconnue,
+				StyleType.Lager));
+		listBeer.add(
+				new Beer(24, "1664", "Kronenbourg", 5, 0.33, ColorType.Blonde, FermentationType.Haute, StyleType.Lager));
+		listBeer.add(
+				new Beer(1, "ambrée", "trobonix", 3.5, 0.33, ColorType.Ambree, FermentationType.Spontanee, StyleType.Fut));
+		listBeer.add(new Beer(2, "red", "Desperado", 4.5, 0.5, ColorType.Inconnue, FermentationType.EnBouteille,
 				StyleType.Sour));
-		listBeer.add(
-				new Beer(10, "Nom", "Heineken", 5, 0.33, ColorType.Ambree, FermentationType.Haute, StyleType.Abbaye));
-		listBeer.add(
-				new Beer(1, "Nom", "Heineken", 3.5, 0.33, ColorType.Blonde, FermentationType.Mixte, StyleType.Fut));
-		listBeer.add(new Beer(2, "Nom", "Heineken", 4.5, 0.5, ColorType.Blanche, FermentationType.Spontanee,
-				StyleType.Blanche));
-		listBeer.add(new Beer(50, "Nom", "Heineken", 2.5, 0.25, ColorType.Brune, FermentationType.Basse,
-				StyleType.Pale_Ale));
-		listBeer.add(new Beer(64, "Nom", "Heineken", 10, 1, ColorType.Brune, FermentationType.EnBouteille,
+		listBeer.add(new Beer(50, "Brune", "Grimbergen", 2.5, 0.25, ColorType.Brune, FermentationType.Basse,
+				StyleType.Abbaye));
+		listBeer.add(new Beer(64, "l'anglaise", "Spitfire", 10, 1, ColorType.Blanche, FermentationType.EnBouteille,
 				StyleType.Stout));
 		for (int i = 0; i < listBeer.size(); i++)
 			listBeer.get(i).setIndex(i);
@@ -100,7 +100,7 @@ public class BeerController {
 	}
 
 	/**
-	 * update a Beer
+	 * Update a Beer
 	 * 
 	 * @param model
 	 * @param id             of the beer
