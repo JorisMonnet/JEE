@@ -2,15 +2,24 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" th:href="@{/css/style.css}" />
+		<link rel="stylesheet" th:href="@{/style.css}" />
 		<title>Beer Details</title>
 	</head>
 	<body>
-		<h1 th:utext =${beer.name}></h1>
+		<h1 th:utext = ${beer.name}></h1>
+		<h2 th:utext = ${beer.brand}></h2>
 		<ul>
-			<li></li>
+			<li>Nombre en stock : <span th:utext = ${beer.stock}></span> </li>
+			<li>Prix : <span th:utext = ${beer.price}></span></li>
+			<li>Taille : <span th:utext = ${beer.size}></span></li>
+			<li>Couleur : <span th:utext = ${beer.color}></span></li>
+			<li>Fermentation : <span th:utext = ${beer.fermentation}></span></li>
+			<li>Style : <span th:utext = ${beer.style}></span></li>
 		</ul>
 	</body>
+	<form th:action="@{bieres/{id}/delete (id=${beer.index})}" method="post">
+		<input type = "submit" class="delete" value="delete"/>
+	</form>
 	<footer>
 		<span>JEE-ProjetTe1 - Joris Monnet - HEARC - DLM3b</span>
 	</footer>
