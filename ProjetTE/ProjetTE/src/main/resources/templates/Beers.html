@@ -19,7 +19,7 @@
 				<th>Fermentation</th>
 				<th>Style</th>
 			</tr>
-			<tr th:each="beer : ${beers}"> <!-- https://www.thymeleaf.org/doc/tutorials/2.1/thymeleafspring.html -->
+			<tr th:each="beer : ${beers}"> 															<!-- https://www.thymeleaf.org/doc/tutorials/2.1/thymeleafspring.html -->
 				<td th:utext="${beer.name}"/>
 				<td th:utext="${beer.brand}"/>
 				<td th:utext="${beer.price}"/>
@@ -31,18 +31,32 @@
 			</tr>
 		</table>
 	
-		<form method="POST" th:action="@{/add}" th:object="${addBeerForm}">
-			<input th:field="*{name}" 	required type="text" 	placeholder="Nom"/>
-			<input th:field="*{brand}" 	required type="text" 	placeholder="Marque"/>
-			<label for="price">Prix : </label>
-			<input th:field="*{price}" 	required type="number" 	id="price" min="0"/>
-			<label for="size">Taille :  </label>
-			<input th:field="*{size}" 	required type="number" 	id="size" min="0"/>
+		<form method="POST" th:action="@{add}" th:object="${addBeerForm}">
+			<label for="name">Nom :  </label>
+			<input th:field="*{name}" 	required type="text" 	name="name"  	placeholder="Nom"/>
+			<label for="brand">Marque :  </label>
+			<input th:field="*{brand}" 	required type="text" 	name="brand" 	placeholder="Marque"/>
+			<label for="price">Prix (€): </label>
+			<input th:field="*{price}" 	required type="number" 	name="price" 	min="0" step="0.01"/> <!-- cents -->
+			<label for="size">Taille (L):  </label>
+			<input th:field="*{size}" 	required type="number" 	name="size" 	min="0" step="0.001"/> <!-- mL -->
 			<label for="stock">Nombre d'unités : </label>
-			<input th:field="*{stock}" 	required type="number" 	id="stock" min="0"/>
-			<input th:field="*{color}" 	required type="text" 	placeholder="Couleur"/>
-			<input th:field="*{fermentation}" required type="text" placeholder="fermentation"/>
-			<input th:field="*{style}" 	required type="text" 	placeholder="Style"/>
+			<input th:field="*{stock}" 	required type="number" 	name="stock" 	min="0"/>
+			<label for="color">Couleur :  </label>
+			<select name ="color" th:field="*{color}"> 																	<!-- https://www.baeldung.com/thymeleaf-enums -->
+				<option th:each="colorOpt : ${T(ch.hearc.ProjetTE.ColorType).values()}" 
+	        			th:value="${colorOpt}" th:text="${colorOpt}"></option>
+			</select>
+			<label for="fementation">Fermentation :  </label>
+			<select name ="fermentation" th:field="*{fermentation}"> 																
+				<option th:each="fermentationOpt : ${T(ch.hearc.ProjetTE.FermentationType).values()}" 
+	        			th:value="${fermentationOpt}" th:text="${fermentationOpt}"></option>
+			</select>
+			<label for="style">Style :  </label>
+			<select name ="style" th:field="*{style}"> 																	
+				<option th:each="styleOpt : ${T(ch.hearc.ProjetTE.StyleType).values()}" 
+	        			th:value="${styleOpt}" th:text="${styleOpt}"></option>
+			</select>
 			<input type="reset">
 			<input type="submit" value="Add"/>
 		</form>

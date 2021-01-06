@@ -1,9 +1,5 @@
 package ch.hearc.ProjetTE;
 
-import ch.hearc.ProjetTE.Beer.ColorType;
-import ch.hearc.ProjetTE.Beer.FermentationType;
-import ch.hearc.ProjetTE.Beer.StyleType;
-
 public class AddBeerForm {
 	private int stock;
 	private String name;

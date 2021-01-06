@@ -12,17 +12,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import ch.hearc.ProjetTE.Beer.ColorType;
-import ch.hearc.ProjetTE.Beer.FermentationType;
-import ch.hearc.ProjetTE.Beer.StyleType;
-
 @Controller
 @RequestMapping("/bieres")
 public class BeerController {
 
 	private static List<Beer> listBeer = new ArrayList<>();
-	
-	static { //add 5 beers
+
+	static { // add 5 beers
 		listBeer.add(new Beer(5, "Nom", "Heineken", 4.5, 0.33, ColorType.BLONDE, FermentationType.EN_BOUTEILLE,
 				StyleType.SOUR));
 		listBeer.add(
@@ -59,7 +55,7 @@ public class BeerController {
 	 * Show one Beer
 	 * 
 	 * @param model
-	 * @param id of the beer
+	 * @param id    of the beer
 	 * @return view of this Beer
 	 */
 	@GetMapping("/{id}")
@@ -70,7 +66,7 @@ public class BeerController {
 	}
 
 	/**
-	 * Add a Beer 
+	 * Add a Beer
 	 * 
 	 * @param model
 	 * @param addBeerForm the values of the new beer
@@ -87,7 +83,7 @@ public class BeerController {
 	 * Delete a Beer
 	 * 
 	 * @param model
-	 * @param id of the beer
+	 * @param id    of the beer
 	 * @return the view of all beers
 	 */
 	@DeleteMapping("/{id}/delete")
@@ -102,12 +98,12 @@ public class BeerController {
 		}
 		return "Beers";
 	}
-	
+
 	/**
 	 * update a Beer
 	 * 
 	 * @param model
-	 * @param id of the beer
+	 * @param id             of the beer
 	 * @param updateBeerForm the values of the new beer
 	 * @return the view of this beer
 	 */

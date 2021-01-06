@@ -18,18 +18,32 @@
 		</ul>
 	</body>
 	<a th:href="@{{id}/delete (id=${beer.index})}" >Supprimer</a>
-	<form method="POST" th:action="@{{id}/update (id=${beer.index})}" th:object="${updateBeerForm}">
-			<input th:field="*{name}" 	required type="text" 	value="${beer.name}"/>
-			<input th:field="*{brand}" 	required type="text" 	value="${beer.brand}"/>
+	<form method="POST" th:action="@{{id}/update (id=${beer.index})}" th:object="${updateBeerForm}">			
+			<label for="name">Nom :  </label>
+			<input th:field="*{name}" 	required type="text" 	name="name"  	value="${beer.name}"/>
+			<label for="brand">Marque :  </label>
+			<input th:field="*{brand}" 	required type="text" 	name="brand" 	value="${beer.brand}"/>
 			<label for="price">Prix : </label>
-			<input th:field="*{price}" 	required type="number" 	id="price" min="0" value="${beer.price}"/>
+			<input th:field="*{price}" 	required type="number" 	name="price" 	min="0" value="${beer.price}"/>
 			<label for="size">Taille :  </label>
-			<input th:field="*{size}" 	required type="number" 	id="size"  min="0" value="${beer.size}"/>
+			<input th:field="*{size}" 	required type="number" 	name="size" 	min="0" value="${beer.size}"/>
 			<label for="stock">Nombre d'unités : </label>
-			<input th:field="*{stock}" 	required type="number" 	id="stock" min="0" value="${beer.stock}"/>
-			<input th:field="*{color}" 	required type="text" 	value="${beer.color}"/>
-			<input th:field="*{fermentation}" required type="text" value="${beer.fermentation}"/>
-			<input th:field="*{style}" 	required type="text" 	value="${beer.style}"/>
+			<input th:field="*{stock}" 	required type="number" 	name="stock" 	min="0" value="${beer.stock}"/>
+			<label for="color">Couleur :  </label>
+			<select name ="color" th:field="*{color}"> 																	<!-- https://www.baeldung.com/thymeleaf-enums -->
+				<option th:each="colorOpt : ${T(ch.hearc.ProjetTE.ColorType).values()}" 
+	        			th:value="${colorOpt}" th:text="${colorOpt}" th:selected = "${colorOpt==beer.color}"></option>
+			</select>
+			<label for="fementation">Fermentation :  </label>
+			<select name ="fermentation" th:field="*{fermentation}"> 																
+				<option th:each="fermentationOpt : ${T(ch.hearc.ProjetTE.FermentationType).values()}" 
+	        			th:value="${fermentationOpt}" th:text="${fermentationOpt}" th:selected = "${fermentationOpt==beer.fermentation}"></option>
+			</select>
+			<label for="style">Style :  </label>
+			<select name ="style" th:field="*{style}"> 																	
+				<option th:each="styleOpt : ${T(ch.hearc.ProjetTE.StyleType).values()}" 
+	        			th:value="${styleOpt}" th:text="${styleOpt}" th:selected = "${styleOpt==beer.style}"></option>
+			</select>
 			<input type="reset">
 			<input type="submit" value="Update"/>
 		</form>
