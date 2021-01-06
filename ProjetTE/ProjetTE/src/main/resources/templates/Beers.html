@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" th:href="@{/css/style.css}" />
+		<title>Beers List</title>
+	</head>
+	<body>
+		<h1>Beers : </h1>
+		
+		<h3 th:utext="${notificationMessage}"></h3>
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Brand</th>
+				<th>Price</th>
+				<th>Size</th>
+				<th>Color</th>
+				<th>Fermentation</th>
+				<th>Style</th>
+			</tr>
+			<tr th:each="beer : ${beers}"> <!-- https://www.thymeleaf.org/doc/tutorials/2.1/thymeleafspring.html -->
+				<td th:utext="${beer.name}"/>
+				<td th:utext="${beer.brand}"/>
+				<td th:utext="${beer.price}"/>
+				<td th:utext="${beer.size}"/>
+				<td th:utext="${beer.color}"/>
+				<td th:utext="${beer.fermentation}"/>
+				<td th:utext="${beer.style}"/>
+				<td><a th:href="@{bieres/{id}(id=${beer.index})}">+ de Détails</a></td>
+			</tr>
+		</table>
+	
+		<form method="POST" th:action="@{/add}" th:object="${beerForm}">
+			<input th:field="*{name}" required type="text" placeholder="Nom"/>
+			<input th:field="*{brand}" required type="text" placeholder="Marque"/>
+			<input th:field="*{price}" required type="number" placeholder="Prix(€)"/>
+			<input th:field="*{size}" required type="number" placeholder="Taille(L)"/>
+			<input th:field="*{stock}" required type="number" placeholder="Nombre d'unités"/>
+			<select th:field="*{name}" required type="text" placeholder="Name"/>
+			<select th:field="*{name}" required type="text" placeholder="Name"/>
+			<select th:field="*{name}" required type="text" placeholder="Name"/>
+		</form>
+	</body>
+	<footer>
+		<span>JEE-ProjetTe1 - Joris Monnet - HEARC - DLM3b</span>
+	</footer>
+</html>
