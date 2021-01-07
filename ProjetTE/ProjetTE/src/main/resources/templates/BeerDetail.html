@@ -1,56 +1,63 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" th:href="@{/style.css}" />
-		<title>Beer Details</title>
-	</head>
-	<body>
-		<a href="/bieres">Retour à la liste</a>
-		
-		<h1 th:utext = ${beer.name}></h1>
-		<h2 th:utext = ${beer.brand} style="margin-left: 5vw"></h2>
-		<ul>
-			<li>Nombre en stock : <span th:utext = ${beer.stock}></span> </li>
-			<li>Prix : <span th:utext = ${beer.price}></span></li>
-			<li>Taille : <span th:utext = ${beer.size}></span></li>
-			<li>Couleur : <span th:utext = ${beer.color}></span></li>
-			<li>Fermentation : <span th:utext = ${beer.fermentation}></span></li>
-			<li>Style : <span th:utext = ${beer.style}></span></li>
-		</ul>
-	</body>
-	<a style="margin-left: 5vw;color: red" th:href="@{{id}/delete (id=${beer.index})}" >Supprimer La bière</a>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" th:href="@{/style.css}" />		
+	<title>Beer Details</title>
+</head>
+<body>
+	<a href="/bieres">Retour à la liste</a>
+
+	<h1 th:utext=${beer.name}></h1>
+	<h2 th:utext=${beer.brand} style="margin-left: 5vw"></h2>
+	<ul>
+		<li>Nombre en stock : <span th:utext=${beer.stock}></span>
+		</li>
+		<li>Prix : <span th:utext=${beer.price}></span></li>
+		<li>Taille : <span th:utext=${beer.size}></span></li>
+		<li>Couleur : <span th:utext=${beer.color}></span></li>
+		<li>Fermentation : <span th:utext=${beer.fermentation}></span></li>
+		<li>Style : <span th:utext=${beer.style}></span></li>
+	</ul>
+	<a style="margin-left: 5vw; color: red"
+		th:href="@{{id}/delete (id=${beer.index})}">Supprimer La bière</a>
 	<h2 style="margin-left: 40vw">Modifier la Bière :</h2>
-	<form method="POST" th:action="@{{id}/update (id=${beer.index})}" th:object="${updateBeerForm}">			
-			<label for="name">Nom :  </label>
-			<input required type="text" 	th:name="name"  			th:value="${beer.name}"/>
-			<label for="brand">Marque :  </label>
-			<input required type="text" 	th:name="brand" 			th:value="${beer.brand}"/>
-			<label for="price">Prix : </label>
-			<input required type="number" 	th:name="price" 	min="0" step="0.01" 	th:value="${beer.price}"/>
-			<label for="size">Taille :  </label>
-			<input required type="number" 	th:name="size" 		min="0" step="0.001" 	th:value="${beer.size}"/>
-			<label for="stock">Nombre d'unités : </label>
-			<input required type="number" 	th:name="stock" 	min="0" th:value="${beer.stock}"/>
-			<label for="color">Couleur :  </label>
-			<select th:name ="color"> 																	<!-- https://www.baeldung.com/thymeleaf-enums -->
-				<option th:each="colorOpt : ${T(ch.hearc.ProjetTE.ColorType).values()}" 
-	        			th:value="${colorOpt}" th:text="${colorOpt}" th:selected="(${colorOpt==beer.color})"></option>
-			</select>
-			<label for="fementation">Fermentation :  </label>
-			<select th:name ="fermentation"> 																
-				<option th:each="fermentationOpt : ${T(ch.hearc.ProjetTE.FermentationType).values()}" 
-	        			th:value="${fermentationOpt}" th:text="${fermentationOpt}" th:selected="(${fermentationOpt==beer.fermentation})"></option>
-			</select>
-			<label for="style">Style :  </label>
-			<select th:name ="style"> 																	
-				<option th:each="styleOpt : ${T(ch.hearc.ProjetTE.StyleType).values()}" 
-	        			th:value="${styleOpt}" th:text="${styleOpt}" th:selected="(${styleOpt}==${beer.style})"></option>
-			</select>
-			<input type="reset" value="Annuler" style="width: 10vw;margin-left: 5vw;border-radius: 1em">
-				<input type="submit" value="Mettre à jour"style="width: 10vw;margin-left: 5vw;border-radius: 1em"/>
-		</form>
-	<footer>
-		<span>JEE-ProjetTe1 - Joris Monnet - HEARC - DLM3b</span>
-	</footer>
+	<form method="POST" th:action="@{{id}/update (id=${beer.index})}"
+		th:object="${updateBeerForm}">
+		<label for="name">Nom : </label> <input required type="text"
+			th:name="name" th:value="${beer.name}" /> <label for="brand">Marque
+			: </label> <input required type="text" th:name="brand"
+			th:value="${beer.brand}" /> <label for="price">Prix : </label> <input
+			required type="number" th:name="price" min="0" step="0.01"
+			th:value="${beer.price}" /> <label for="size">Taille : </label> <input
+			required type="number" th:name="size" min="0" step="0.001"
+			th:value="${beer.size}" /> <label for="stock">Nombre d'unités
+			: </label> <input required type="number" th:name="stock" min="0"
+			th:value="${beer.stock}" /> <label for="color">Couleur : </label> <select
+			th:name="color">
+			<!-- https://www.baeldung.com/thymeleaf-enums -->
+			<option
+				th:each="colorOpt : ${T(ch.hearc.ProjetTE.ColorType).values()}"
+				th:value="${colorOpt}" th:text="${colorOpt}"
+				th:selected="(${colorOpt==beer.color})"></option>
+		</select> <label for="fementation">Fermentation : </label> <select
+			th:name="fermentation">
+			<option
+				th:each="fermentationOpt : ${T(ch.hearc.ProjetTE.FermentationType).values()}"
+				th:value="${fermentationOpt}" th:text="${fermentationOpt}"
+				th:selected="(${fermentationOpt==beer.fermentation})"></option>
+		</select> <label for="style">Style : </label> <select th:name="style">
+			<option
+				th:each="styleOpt : ${T(ch.hearc.ProjetTE.StyleType).values()}"
+				th:value="${styleOpt}" th:text="${styleOpt}"
+				th:selected="(${styleOpt}==${beer.style})"></option>
+		</select> <input type="reset" value="Annuler"
+			style="width: 10vw; margin-left: 5vw; border-radius: 1em"> <input
+			type="submit" value="Mettre à jour"
+			style="width: 10vw; margin-left: 5vw; border-radius: 1em" />
+	</form>
+</body>
+<footer>
+	<span>JEE-ProjetTe1 - Joris Monnet - HEARC - DLM3b</span>
+</footer>
 </html>
